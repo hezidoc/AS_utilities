@@ -1,0 +1,87 @@
+# --- Entornos Virtuales ---
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# --- Archivos compilados de Python ---
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Distribución / Empaquetado ---
+bin/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# --- Archivos de Configuración y Variables de Entorno (¡Seguridad!) ---
+.env
+.venv
+.env.secret
+.env.shared
+.env.local
+.env.*.local
+*.env
+.secret
+*.secret
+
+# --- Herramientas de Testing y Cobertura ---
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# --- Jupyter Notebooks ---
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# --- Logs y Bases de Datos temporales ---
+*.log
+*.sqlite3
+
+# --- IDEs y Editores de código (Opcional pero recomendado) ---
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*~
+.DS_Store
+
+# PERSONALIZADAS
+data.txt
+*.docx
+*.zip
+room_code_output
+*.spec
+screen_output

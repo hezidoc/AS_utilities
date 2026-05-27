@@ -1,0 +1,18 @@
+{
+    "package": "com.example.pruebas",
+    "screens": [
+        {
+            "name": "aaaaaaaaaaaaaaaa",
+            "TextFieldList": [
+                "dgd"
+            ],
+            "RadioButton": {
+                "name": "gdf",
+                "orientacion": "horizontal",
+                "options": [
+                    "gdfg"
+                ]
+            }
+        }
+    ]
+}

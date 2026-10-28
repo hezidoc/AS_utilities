@@ -132,7 +132,14 @@ class PackerWindow:
         ).pack(pady=15)
 
     def seleccionar_carpeta(self):
-        carpeta = filedialog.askdirectory()
+        # Obtiene la ruta de la carpeta del usuario actual (ej. C:\Users\NombreUsuario\AndroidStudioProjects)
+        ruta_inicial = os.path.join(os.path.expanduser("~"), "AndroidStudioProjects")
+        
+        # Si por alguna razón la carpeta no existe, abre la carpeta personal del usuario
+        if not os.path.exists(ruta_inicial):
+            ruta_inicial = os.path.expanduser("~")
+
+        carpeta = filedialog.askdirectory(initialdir=ruta_inicial)
         if carpeta:
             self.actualizar_ruta(carpeta)
 
@@ -150,13 +157,16 @@ class PackerWindow:
             messagebox.showerror("Error", "Ruta de proyecto inválida")
             return
 
+        path_normalizado = os.path.normpath(path)
+        nombre_proyecto = os.path.basename(path_normalizado)
+
         timestamp = datetime.now().strftime("%Y%m%d_%H%M")
-        nombre_zip = f"proyecto_android_{timestamp}.zip"
+        nombre_zip = f"{nombre_proyecto}_{timestamp}.zip"
 
         if self.opcion_path.get() == "script":
             salida = os.path.join(os.getcwd(), nombre_zip)
         else:
-            carpeta_padre = os.path.dirname(path)
+            carpeta_padre = os.path.dirname(path_normalizado)
             salida = os.path.join(carpeta_padre, nombre_zip)
 
         try:
@@ -166,12 +176,9 @@ class PackerWindow:
             messagebox.showerror("Error", str(e))
 
     def regresar(self):
-        # Desvinculamos el evento DnD para que no interfiera en otras pantallas
         if DND_AVAILABLE:
             self.root.drop_target_unregister()
-        # Destruimos este menú completo
         self.main_frame.destroy()
-        # Llamamos al menú principal para que se vuelva a dibujar
         self.volver_callback()
 
 
